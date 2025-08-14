@@ -310,7 +310,7 @@ const BlogCard = ({
   );
 };
 
-const LatestPost = ({
+export const LatestPost = ({
   id,
   title,
   excerpt,

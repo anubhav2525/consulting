@@ -3,10 +3,23 @@ import { PlaceholdersAndVanishInput } from "../ui/placeholders-and-vanish-input"
 import Link from "next/link";
 import React from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import {
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandLinkedin,
+  IconWorldWww,
+} from "@tabler/icons-react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 type Link = {
   title: string;
   url: string;
+};
+
+type SocialLinkType = {
+  icon: React.ReactNode;
+  url: string;
+  title?: string;
 };
 
 const Footer = () => {
@@ -14,26 +27,36 @@ const Footer = () => {
 
   const serviceLinks: Link[] = [
     { title: "Staffing Services", url: "/staffing-services" },
-    { title: "Industrial automation", url: "/industrial-automation" },
-    { title: "Design Engineering", url: "/design-engineering" },
+    { title: "Strategic Advisory", url: "/strategic-advisory" },
+    { title: "Placement Services", url: "/placement-services" },
+
     {
-      title: "Admin Acc. Services",
+      title: "Business Process Optimization",
+      url: "/business-process-optimization",
+    },
+    {
+      title: "Automation & Design Engineering",
+      url: "/automation-design-engineering",
+    },
+
+    {
+      title: "Administrative & Accounting Services",
       url: "/administrative-accounting-services",
     },
   ];
 
   const inductriesLinks: Link[] = [
-    { title: "Service 1", url: "/services/1" },
-    { title: "Service 2", url: "/services/2" },
-    { title: "Service 3", url: "/services/3" },
-    { title: "Service 4", url: "/services/4" },
+    { title: "Financial Services", url: "/financial-services" },
+    { title: "Technology & Software", url: "/technology-software" },
+    { title: "Retail & Consumer Goods", url: "/retail-consumer-goods" },
+    { title: "Healthcare & Life Sciences", url: "/healthcare-life-sciences" },
   ];
 
   const companyLinks: Link[] = [
     { title: "About Us", url: "/about-us" },
-    { title: "Our Team", url: "/our-team" },
+    { title: "Contact Us", url: "/contact-us" },
     { title: "Our Services", url: "/our-services" },
-    { title: "Careers", url: "/careers" },
+    // { title: "Careers", url: "/careers" },
     { title: "Blogs/Insights", url: "/blogs" },
   ];
 
@@ -44,10 +67,27 @@ const Footer = () => {
     time: "Mon-Fri: 9am - 6pm EST",
   };
 
-  const socialLinks: Link[] = [
-    { title: "Facebook", url: "https://facebook.com" },
-    { title: "Twitter", url: "https://twitter.com" },
-    { title: "LinkedIn", url: "https://linkedin.com" },
+  const socialLink: SocialLinkType[] = [
+    {
+      icon: <IconBrandFacebook stroke={2} size={30} />,
+      title: "Facebook",
+      url: "https://www.facebook.com",
+    },
+    {
+      icon: <IconBrandLinkedin stroke={2} size={30} />,
+      title: "Linkedin",
+      url: "https://www.facebook.com",
+    },
+    {
+      icon: <IconBrandInstagram stroke={2} size={30} />,
+      title: "Instagram",
+      url: "https://www.facebook.com",
+    },
+    {
+      icon: <IconWorldWww stroke={2} size={30} />,
+      title: "Website",
+      url: "https://www.facebook.com",
+    },
   ];
   return (
     <section className="w-full border-t border-slate-200 py-6 px-4">
@@ -133,19 +173,17 @@ const Footer = () => {
 
           <div>
             <h2 className="text-black font-semibold pb-3">Follow us</h2>
-            <div className="flex items-center justify-start gap-3 w-full">
-              <div className="flex items-center w-full">
-                <Phone size={24} />
-              </div>
-              <div className="flex items-center w-full">
-                <Mail size={24} />
-              </div>
-              <div className="flex items-center w-full">
-                <MapPin size={24} />
-              </div>
-              <div className="flex items-center w-full">
-                <Clock size={24} />
-              </div>
+            <div className="w-full flex gap-4 items-center">
+              {socialLink.map((item: SocialLinkType, idx: number) => (
+                <Link href={item.url} className="" key={idx}>
+                  <Tooltip>
+                    <TooltipTrigger> {item.icon}</TooltipTrigger>
+                    <TooltipContent>
+                      <p>{item.title}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

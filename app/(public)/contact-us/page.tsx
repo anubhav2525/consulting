@@ -34,6 +34,13 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 type SocialLinkType = {
   icon: React.ReactNode;
@@ -49,11 +56,10 @@ const ContactUsPage = () => {
         <p className="pt-4">Get A Full Time Job In USA In No Time</p>
 
         <div className="pt-8 w-full grid lg:grid-cols-2 gap-8">
-          <div>
-            <ContactDetails />
-          </div>
-          <div className="flex flex-col gap-6 items-center rounded-lg border p-4 bg-gray-100">
-            <LoginForm />
+          <ContactDetails />
+
+          <div className="flex justify-center items-center rounded-lg border p-4 bg-gray-100">
+            <ContactForm />
           </div>
         </div>
       </div>
@@ -63,7 +69,7 @@ const ContactUsPage = () => {
 
 export default ContactUsPage;
 
-const LoginForm = () => {
+const ContactForm = () => {
   const FormSchema = z.object({
     firstname: z.string(),
     lastname: z.string(),
@@ -159,19 +165,41 @@ const LoginForm = () => {
                   </FormItem>
                 )}
               />
-              <FormField
-                control={form.control}
-                name="subject"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Last Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Deo" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <div className="w-full">
+                <FormField
+                  control={form.control}
+                  name="subject"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Last Name</FormLabel>
+                      <FormControl className="w-full">
+                        <Select
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                        >
+                          <FormControl>
+                            <SelectTrigger className="w-full">
+                              <SelectValue placeholder="Select a subject" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="w-full">
+                            <SelectItem value="m@example.com">
+                              m@example.com
+                            </SelectItem>
+                            <SelectItem value="m@google.com">
+                              m@google.com
+                            </SelectItem>
+                            <SelectItem value="m@support.com">
+                              m@support.com
+                            </SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
             </div>
             <FormField
               control={form.control}

@@ -13,6 +13,8 @@ import {
 import Link from "next/link";
 import { useState } from "react";
 import React from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 const NavbarUI = () => {
   const navItems = [
@@ -39,6 +41,8 @@ const NavbarUI = () => {
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <div className="relative w-full">
@@ -48,7 +52,12 @@ const NavbarUI = () => {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className="flex items-center gap-4">
-            <NavbarButton variant="primary">Free Consultation</NavbarButton>
+            <NavbarButton
+              onClick={() => router.push("/contact-us")}
+              variant="primary"
+            >
+              Free Consultation
+            </NavbarButton>
           </div>
         </NavBody>
 
@@ -66,16 +75,26 @@ const NavbarUI = () => {
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
           >
-            {navItems.map((item, idx) => (
-              <Link
-                key={`mobile-link-${idx}`}
-                href={item.link}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-neutral-600 dark:text-neutral-300"
-              >
-                <span className="block">{item.name}</span>
-              </Link>
-            ))}
+            {navItems.map((item, idx) => {
+              const isActive =
+                pathname === item.link ||
+                (item.link !== "/" && pathname.startsWith(item.link));
+
+              return (
+                <Link
+                  key={`desktop-link-${idx}`}
+                  href={item.link}
+                  className={cn(
+                    "relative block transition-all duration-500 hover:text-primary px-4 py-2 rounded-4xl hover:bg-slate-100",
+                    isActive
+                      ? "text-blue-500 font-semibold hover:text-blue-700 bg-slate-100"
+                      : "text-neutral-600 dark:text-neutral-300"
+                  )}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
             <div className="flex w-full gap-4">
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
