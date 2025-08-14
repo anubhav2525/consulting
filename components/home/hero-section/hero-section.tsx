@@ -42,7 +42,7 @@ const HeroSectionUI = () => {
           }}
           className="relative z-10 mx-auto max-w-xl py-4 text-center text-lg font-normal text-neutral-600"
         >
-          From strategy to execution, we help businesses achieve measurable
+          From strategy to execution&#44; we help businesses achieve measurable
           results in less time. Partner with our experts and turn your vision
           into reality.
         </motion.p>

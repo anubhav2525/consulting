@@ -3,28 +3,16 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { IconMail, IconMap, IconMapPin, IconPhone } from "@tabler/icons-react";
+import { IconMail, IconMapPin, IconPhone } from "@tabler/icons-react";
+import Link from "next/link";
 import React from "react";
+import { siteConfig } from "@/config/siteConfig";
 
-type Props = {
-  companyName?: string;
-  effectiveDate?: string;
-  email?: string;
-  phone?: string;
-  address?: string;
-};
-
-const PrivacyPolicyPage: React.FC<Props> = ({
-  companyName = "Radiance Technologies",
-  effectiveDate = "August 14, 2025",
-  email = "info@example.com",
-  phone = "+91 123 123 1231",
-  address = "123 Street Name, City, Country",
-}) => {
+const PrivacyPolicyPage = () => {
+  const { companyName, effectiveDate, email, phone, address } = siteConfig;
   return (
     <main className="min-h-screen">
       {/* Hero / Header */}
@@ -37,11 +25,12 @@ const PrivacyPolicyPage: React.FC<Props> = ({
             Effective Date: <span className="font-medium">{effectiveDate}</span>
           </p>
           <p className="mt-6 max-w-3xl text-slate-600">
-            At <span className="font-semibold">{companyName}</span> (“we,”
-            “our,” “us”), we respect your privacy and are committed to
-            protecting the personal information you share with us. This Privacy
-            Policy explains how we collect, use, disclose, and safeguard your
-            information when you visit our website or use our services.
+            At <span className="font-semibold">{companyName}</span>{" "}
+            (&#34;we&#44;&#34; &#34;our&#44;&#34; &#34;us&#34;)&#44; we respect
+            your privacy and are committed to protecting the personal
+            information you share with us. This Privacy Policy explains how we
+            collect&#44; use&#44; disclose&#44; and safeguard your information
+            when you visit our website or use our services.
           </p>
         </div>
       </section>
@@ -60,9 +49,9 @@ const PrivacyPolicyPage: React.FC<Props> = ({
                   1.1 Personal Information
                 </h3>
                 <p className="mt-2">
-                  Information you voluntarily provide when contacting us,
-                  signing up for our services, or requesting information, such
-                  as:
+                  Information you voluntarily provide when contacting us&#44;
+                  signing up for our services&#44; or requesting
+                  information&#44; such as:
                 </p>
                 <ul className="mt-2 list-inside list-disc space-y-1">
                   <li>Name</li>
@@ -78,8 +67,8 @@ const PrivacyPolicyPage: React.FC<Props> = ({
                   1.2 Non-Personal Information
                 </h3>
                 <p className="mt-2">
-                  Information automatically collected when you use our website,
-                  including:
+                  Information automatically collected when you use our
+                  website&#44; including:
                 </p>
                 <ul className="mt-2 list-inside list-disc space-y-1">
                   <li>IP address</li>
@@ -95,9 +84,9 @@ const PrivacyPolicyPage: React.FC<Props> = ({
                 </h3>
                 <p className="mt-2">
                   We use cookies and similar technologies to enhance your
-                  browsing experience, analyze website traffic, and understand
-                  user behavior. You can manage cookie preferences through your
-                  browser settings.
+                  browsing experience&#44; analyze website traffic&#44; and
+                  understand user behavior. You can manage cookie preferences
+                  through your browser settings.
                 </p>
               </div>
             </div>
@@ -115,7 +104,8 @@ const PrivacyPolicyPage: React.FC<Props> = ({
               <li>Providing and improving our services</li>
               <li>Responding to inquiries and support requests</li>
               <li>
-                Sending updates, offers, or newsletters (with your consent)
+                Sending updates&#44; offers&#44; or newsletters (with your
+                consent)
               </li>
               <li>Analyzing website usage for performance improvements</li>
               <li>Complying with legal obligations</li>
@@ -128,15 +118,15 @@ const PrivacyPolicyPage: React.FC<Props> = ({
               3. Sharing of Information
             </h2>
             <p className="mt-4 text-slate-700">
-              We do <span className="font-semibold">not</span> sell, rent, or
-              trade your personal information. We may share it only in the
-              following cases:
+              We do <span className="font-semibold">not</span> sell&#44;
+              rent&#44; or trade your personal information. We may share it only
+              in the following cases:
             </p>
             <ul className="mt-2 list-inside list-disc space-y-1 text-slate-700">
               <li>
                 <span className="font-medium">With Service Providers:</span>{" "}
-                Trusted third parties who assist in website hosting, analytics,
-                or marketing.
+                Trusted third parties who assist in website hosting&#44;
+                analytics&#44; or marketing.
               </li>
               <li>
                 <span className="font-medium">For Legal Compliance:</span> When
@@ -144,7 +134,7 @@ const PrivacyPolicyPage: React.FC<Props> = ({
               </li>
               <li>
                 <span className="font-medium">Business Transfers:</span> In case
-                of a merger, acquisition, or sale of assets.
+                of a merger&#44; acquisition&#44; or sale of assets.
               </li>
             </ul>
           </article>
@@ -156,9 +146,10 @@ const PrivacyPolicyPage: React.FC<Props> = ({
             </h2>
             <p className="mt-4 text-slate-700">
               We implement industry-standard measures to protect your personal
-              information from unauthorized access, alteration, disclosure, or
-              destruction. However, no data transmission over the internet is
-              completely secure, so we cannot guarantee absolute security.
+              information from unauthorized access&#44; alteration&#44;
+              disclosure&#44; or destruction. However&#44; no data transmission
+              over the internet is completely secure&#44; so we cannot guarantee
+              absolute security.
             </p>
           </article>
 
@@ -168,22 +159,24 @@ const PrivacyPolicyPage: React.FC<Props> = ({
               5. Your Rights
             </h2>
             <p className="mt-4 text-slate-700">
-              Depending on your location, you may have the right to:
+              Depending on your location&#44; you may have the right to:
             </p>
             <ul className="mt-2 list-inside list-disc space-y-1 text-slate-700">
-              <li>Access, update, or delete your personal information</li>
+              <li>
+                Access&#44; update&#44; or delete your personal information
+              </li>
               <li>Opt out of marketing communications</li>
               <li>Request a copy of the data we hold about you</li>
               <li>Withdraw consent for data processing</li>
             </ul>
             <p className="mt-3 text-slate-700">
-              To exercise these rights, contact us at{" "}
-              <a
+              To exercise these rights&#44; contact us at{" "}
+              <Link
                 className="font-medium text-indigo-600 underline decoration-indigo-300 underline-offset-4 hover:text-indigo-700"
                 href={`mailto:${email}`}
               >
                 {email}
-              </a>
+              </Link>
               .
             </p>
           </article>
@@ -203,11 +196,11 @@ const PrivacyPolicyPage: React.FC<Props> = ({
           {/* 7. Children’s Privacy */}
           <article id="children">
             <h2 className="text-2xl font-semibold text-slate-900">
-              7. Children’s Privacy
+              7. Children&#39;s Privacy
             </h2>
             <p className="mt-4 text-slate-700">
-              Our services are not intended for individuals under the age of 16,
-              and we do not knowingly collect personal information from
+              Our services are not intended for individuals under the age of
+              16&#44; and we do not knowingly collect personal information from
               children.
             </p>
           </article>
@@ -230,9 +223,9 @@ const PrivacyPolicyPage: React.FC<Props> = ({
             </h2>
             <Card className="w-full shadow-none rounded-sm">
               <CardHeader>
-                <CardTitle>Company name</CardTitle>
+                <CardTitle>{companyName}</CardTitle>
                 <CardDescription>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Lorem ipsum dolor&#44; sit amet consectetur adipisicing elit.
                   Quibusdam repudiandae et eius rem odio incidunt.
                 </CardDescription>
               </CardHeader>

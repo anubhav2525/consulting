@@ -53,9 +53,9 @@ const AboutUsPage = () => {
                 Our Mission
               </h2>
               <p className="font-light text-gray-500 md:text-lg">
-                To enable organizations to operate smarter, faster, and more
-                efficiently by delivering tailored consulting solutions that
-                drive measurable business outcomes.
+                To enable organizations to operate smarter&#44; faster&#44; and
+                more efficiently by delivering tailored consulting solutions
+                that drive measurable business outcomes.
               </p>
             </div>
           </div>
@@ -78,7 +78,7 @@ const AboutUsPage = () => {
                 Our Vision
               </h2>
               <p className="font-light text-gray-500 md:text-lg">
-                To be recognized as a global leader in consulting, known for
+                To be recognized as a global leader in consulting&#44; known for
                 transforming challenges into opportunities and ideas into
                 impact.
               </p>
@@ -117,11 +117,11 @@ const OurTeam = () => {
         <div className="w-full max-w-6xl mx-auto flex flex-col gap-6">
           <h2 className="text-2xl font-bold text-black">Our Team</h2>
           <p className="text-gray-500">
-            Our team is a blend of industry veterans, problem-solvers, and
-            innovators who bring diverse perspectives to every project. With
-            experience across multiple sectors, we approach each client
-            engagement with a fresh perspective, ensuring our strategies align
-            with your unique business goals.
+            Our team is a blend of industry veterans&#44; problem-solvers&#44;
+            and innovators who bring diverse perspectives to every project. With
+            experience across multiple sectors&#44; we approach each client
+            engagement with a fresh perspective&#44; ensuring our strategies
+            align with your unique business goals.
           </p>
         </div>
       </div>

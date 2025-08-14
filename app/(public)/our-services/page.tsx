@@ -66,11 +66,11 @@ const OurServicesPage = () => {
         <div className="flex flex-col gap-6 px-2">
           <h1 className="text-black text-4xl font-bold">Our Services</h1>
           <p className="text-slate-600">
-            As a trusted business consulting partner, we deliver solutions
+            As a trusted business consulting partner&#44; we deliver solutions
             designed to address your most pressing challenges and unlock
-            long-term growth. From talent acquisition to process automation, we
-            provide end-to-end services that help businesses operate smarter,
-            faster, and more profitably.
+            long-term growth. From talent acquisition to process automation&#44;
+            we provide end-to-end services that help businesses operate
+            smarter&#44; faster&#44; and more profitably.
           </p>
         </div>
 
