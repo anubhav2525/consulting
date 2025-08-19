@@ -59,7 +59,7 @@ const ServicesSectionUI = () => {
   return (
     <section className="w-full">
       <div className="w-full max-w-7xl mx-auto flex flex-col gap-6 px-4 py-8 lg:py-16 lg:px-6">
-        <div className="w-full flex flex-col gap-2">
+        <div className="w-full flex flex-col gap-2 items-center">
           <h2 className="text-2xl font-bold">Services we serve</h2>
           <p className="text-gray-600">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel nihil
@@ -72,7 +72,7 @@ const ServicesSectionUI = () => {
           {services.map((service: SeriveType, idx: number) => (
             <Card className="rounded shadow-none" key={idx}>
               <CardHeader>
-                <CardTitle className="text-lg font-semibold md:text-xl">
+                <CardTitle className="text-lg font-semibold">
                   {service.title}
                 </CardTitle>
               </CardHeader>

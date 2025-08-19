@@ -1,51 +1,135 @@
-import React from "react";
+"use client";
+import { Deck, DeckCards, DeckEmpty, DeckItem } from "@/components/ui/deck";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { MoveRight, MoveLeft } from "lucide-react";
+import Image from "next/image";
 
-const TestonomialSectionUI = () => {
+const TestimonialSectionUI = () => {
+  const testimonials = [
+    {
+      id: 1,
+      name: "Sarah Johnson",
+      role: "Marketing Manager, Acme Inc.",
+      content:
+        "Working with Radiance Consulting has been a game-changer. Their expertise helped us scale faster than we imagined.",
+      avatar: "/avatars/sarah.jpg",
+    },
+    {
+      id: 2,
+      name: "James Lee",
+      role: "Founder, StartupX",
+      content:
+        "The professionalism and creativity were beyond our expectations. Highly recommended!",
+      avatar: "/avatars/james.jpg",
+    },
+    {
+      id: 3,
+      name: "Priya Sharma",
+      role: "HR Head, GlobalTech",
+      content:
+        "Their team provided top-notch talent solutions. We couldn’t be happier with the results.",
+      avatar: "/avatars/priya.jpg",
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [animationDirection, setAnimationDirection] = useState<
+    "left" | "right"
+  >("left");
+
+  const nextCardLeft = () => {
+    setAnimationDirection("left");
+    setTimeout(() => {
+      setCurrentIndex((prev) =>
+        prev + 1 >= testimonials.length ? 0 : prev + 1
+      );
+    }, 0);
+  };
+
+  const nextCardRight = () => {
+    setAnimationDirection("right");
+    setTimeout(() => {
+      setCurrentIndex((prev) =>
+        prev + 1 >= testimonials.length ? 0 : prev + 1
+      );
+    }, 0);
+  };
+
   return (
-    <section className="w-full px-4 py-8 lg:py-16 lg:px-6 flex flex-col items-center gap-6 bg-slate-50">
-      <div className="w-full max-w-7xl mx-auto flex flex-col gap-6 ">
+    <section className="w-full px-4 py-8 lg:py-16 lg:px-6">
+      <div className="w-full max-w-7xl mx-auto flex flex-col gap-8">
+        {/* Heading */}
         <div className="w-full flex flex-col gap-2 items-center">
-          <h2 className="text-2xl font-bold">Our Satisfied Clients</h2>
+          <h2 className="text-2xl font-bold">Our students</h2>
           <p className="text-gray-600">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel nihil
-            dolorum voluptates tempore nesciunt officia totam itaque, eligendi
-            delectus maiores?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,
+            laborum.
           </p>
         </div>
-      </div>
 
-      <figure className="max-w-screen-md mx-auto">
-        <svg
-          className="h-12 mx-auto mb-3 text-gray-400"
-          viewBox="0 0 24 27"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
-            fill="currentColor"
-          />
-        </svg>
-        <blockquote>
-          <p className="text-2xl font-medium text-gray-900 dark:text-white">
-            &#34;Flowbite is just awesome. It contains tons of predesigned
-            components and pages starting from login screen to complex
-            dashboard. Perfect choice for your next SaaS application.&#34;
-          </p>
-        </blockquote>
-        <figcaption className="flex items-center justify-center mt-6 space-x-3">
-          <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
-            <div className="pr-3 font-medium text-gray-900 dark:text-white">
-              Micheal Gough
-            </div>
-            <div className="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
-              CEO at Google
+        {/* Deck Section */}
+        <div className="space-y-4 w-full">
+          <Deck className="w-full mx-auto h-[320px]">
+            <DeckCards
+              animateOnIndexChange
+              className="w-full h-full"
+              currentIndex={currentIndex}
+              indexChangeDirection={animationDirection}
+              onCurrentIndexChange={setCurrentIndex}
+            >
+              {testimonials.map((t, index: number) => (
+                <DeckItem
+                  key={t.id}
+                  className="flex flex-col items-center justify-center gap-4 text-center p-2 shadow-none border-none w-full"
+                >
+                  <p className="text-lg italic leading-relaxed text-muted-foreground text-center w-full">
+                    “{t.content}”
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <Image
+                      src={t.avatar}
+                      alt={t.name}
+                      width={48}
+                      height={48}
+                      className="rounded-full"
+                    />
+                    <div className="text-left">
+                      <h3 className="font-semibold">{t.name}</h3>
+                      <p className="text-sm text-muted-foreground">{t.role}</p>
+                    </div>
+                  </div>
+                </DeckItem>
+              ))}
+            </DeckCards>
+            <DeckEmpty>No more testimonials</DeckEmpty>
+          </Deck>
+
+          {/* Navigation */}
+          <div className="flex w-full items-center justify-center pt-8">
+            <div className="flex gap-3">
+              <Button
+                disabled={currentIndex >= testimonials.length}
+                onClick={nextCardLeft}
+                size="sm"
+                variant="outline"
+              >
+                <MoveLeft size={20} />
+              </Button>
+              <Button
+                disabled={currentIndex >= testimonials.length}
+                onClick={nextCardRight}
+                size="sm"
+                variant="outline"
+              >
+                <MoveRight size={20} />
+              </Button>
             </div>
           </div>
-        </figcaption>
-      </figure>
+        </div>
+      </div>
     </section>
   );
 };
 
-export default TestonomialSectionUI;
+export default TestimonialSectionUI;

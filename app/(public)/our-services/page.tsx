@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import PricingPlan from "@/components/pricing-plan/pricing-plan";
 
 type SeriveType = {
   title: string;
@@ -62,7 +63,7 @@ const OurServicesPage = () => {
         />
       </div>
 
-      <div className="w-full max-w-6xl mx-auto flex flex-col items-center py-10">
+      <div className="w-full max-w-7xl mx-auto flex flex-col items-center py-10">
         <div className="flex flex-col gap-6 px-2">
           <h1 className="text-black text-4xl font-bold">Our Services</h1>
           <p className="text-slate-600">
@@ -99,6 +100,8 @@ const OurServicesPage = () => {
           ))}
         </div>
       </div>
+
+      <PricingPlan bgColour="bg-slate-50 py-10" />
     </section>
   );
 };

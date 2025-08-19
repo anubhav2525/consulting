@@ -15,7 +15,7 @@ const StatsUI = () => {
   ];
   return (
     <section className="w-full bg-slate-50">
-      <div className="w-full max-w-6xl mx-auto flex flex-col gap-6 px-4 py-8 lg:py-16 lg:px-6">
+      <div className="w-full max-w-7xl mx-auto flex flex-col gap-6 px-4 py-8 lg:py-16 lg:px-6">
         <div className="w-full flex flex-col gap-2 items-center">
           <h2 className="text-2xl font-bold">We Deliver Results</h2>
           <p className="text-gray-600">

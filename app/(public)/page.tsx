@@ -8,7 +8,8 @@ import IndustriesSectionUI from "@/components/home/industries-section/industries
 import ChooseUsUI from "@/components/home/choose-us/choose-us";
 import StatsUI from "@/components/home/stats/stats";
 import BlogSectionUI from "@/components/home/blog-section/blog-section";
-import OurClientsUI from "@/components/home/our-clients/our-clients";
+import PricingPlan from "@/components/pricing-plan/pricing-plan";
+import Clients from "@/components/clients/clients";
 
 const HomePage = () => {
   return (
@@ -17,11 +18,12 @@ const HomePage = () => {
       <HeroSectionUI />
       <AboutSectionUI />
       <ServicesSectionUI />
+      <PricingPlan bgColour="bg-slate-50" />
       <TestonomialSectionUI />
       <IndustriesSectionUI />
-      <ChooseUsUI />
       <BlogSectionUI />
-      {/* <OurClientsUI /> */}
+      <ChooseUsUI />
+      <Clients />
       <StatsUI />
     </section>
   );

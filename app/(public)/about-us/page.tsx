@@ -26,7 +26,7 @@ const AboutUsPage = () => {
         />
       </div>
 
-      <div className="w-full max-w-6xl mx-auto flex flex-col items-center px-4 py-8 lg:py-16 lg:px-0">
+      <div className="w-full max-w-7xl mx-auto flex flex-col items-center px-4 py-8 lg:py-16 lg:px-0">
         <div className="flex flex-col gap-6 px-2">
           <h1 className="text-black text-4xl font-bold">About us</h1>
           <div className="w-full flex flex-col gap-2 text-slate-600">
@@ -38,7 +38,7 @@ const AboutUsPage = () => {
       </div>
 
       <div className="w-full bg-slate-50">
-        <div className="w-full max-w-6xl mx-auto">
+        <div className="w-full max-w-7xl mx-auto">
           <div className="px-4 py-8 lg:py-16 lg:px-6 xl:gap-16 grid md:grid-cols-2 gap-6">
             <Image
               className="w-full"
@@ -63,7 +63,7 @@ const AboutUsPage = () => {
       </div>
 
       <div className="w-full">
-        <div className="w-full max-w-6xl mx-auto">
+        <div className="w-full max-w-7xl mx-auto">
           <div className="px-4 py-8 lg:py-16 lg:px-6 xl:gap-16 grid md:grid-cols-2 gap-6">
             <Image
               className="w-full order-2"
@@ -114,7 +114,7 @@ const OurTeam = () => {
   return (
     <>
       <div className="w-full px-4 py-8 bg-slate-50">
-        <div className="w-full max-w-6xl mx-auto flex flex-col gap-6">
+        <div className="w-full max-w-7xl mx-auto flex flex-col gap-6">
           <h2 className="text-2xl font-bold text-black">Our Team</h2>
           <p className="text-gray-500">
             Our team is a blend of industry veterans&#44; problem-solvers&#44;
